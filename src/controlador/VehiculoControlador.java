@@ -47,7 +47,7 @@ public class VehiculoControlador {
     public ArrayList<Vehiculo> listarVehiculosPorCedula(String cedula) {
     ArrayList<Vehiculo> lista = new ArrayList<>();
     try {
-        String consultaSQL = "SELECT * FROM vehiculos v, propietarios p WHERE p.pro_cedula =?;";
+        String consultaSQL = "SELECT * FROM vehiculos v, propietarios p WHERE p.pro_id=v.pro_id and pro_cedula =?;";
         PreparedStatement pstmt = (PreparedStatement) connection.prepareStatement(consultaSQL);
         pstmt.setString(1, cedula);
         ResultSet resultado = pstmt.executeQuery();
